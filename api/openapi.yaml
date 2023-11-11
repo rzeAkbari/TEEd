@@ -1,0 +1,81 @@
+openapi: '3.0.3'
+info:
+    title: 'TEEd'
+    version: '0.0.1'
+servers:
+    - url: '/v1/teed-generator'
+
+paths:
+    /teed/{teedId}:
+        get:
+            description: 'get teed'
+            parameters:
+                - name: teedId
+                  in: path
+                  description: ID of wanted teed
+                  required: true
+                  schema:
+                      type: integer
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        'application/json':
+                            schema:
+                                $ref: '#/components/schemas/Teed'
+    /teeds:
+        get:
+            description: 'get teed'
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        'application/json':
+                            schema:
+                                type: object
+                                properties:
+                                    schema:
+                                        $ref: '#/components/schemas/Teed'
+
+        post:
+            description: 'create a new teed'
+            requestBody:
+                required: true
+                description: 'new teed object'
+                content:
+                    'multipart/form-data':
+                        schema:
+                            $ref: '#/components/schemas/Teed'
+            responses:
+                '200':
+                    description: OK
+components:
+    schemas:
+        Teed:
+            type: object
+            properties:
+                property:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Tee'
+        Tee:
+            type: object
+            properties:
+                text:
+                    type: string
+                mainImage:
+                    type: string
+                    format: binary
+                    description: The main image file to upload
+                yesImage:
+                    type: string
+                    format: binary
+                    description: The yes image file to upload
+                noImage:
+                    type: string
+                    format: binary
+                    description: The no image file to upload
+                sureImage:
+                    type: string
+                    format: binary
+                    description: The sure image file to upload

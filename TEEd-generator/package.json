@@ -11,10 +11,12 @@
         "test": "jest",
         "format": "prettier . --write",
         "e2e": "concurrently \"npm start\" \"playwright test\"",
-        "e2e:ui": "concurrently \"npm start\" \"playwright test --ui\""
+        "e2e:ui": "concurrently \"npm start\" \"playwright test --ui\"",
+        "generate": "openapi --input ../api/openapi.yaml --output ./src/generated"
     },
     "dependencies": {
         "@heroicons/react": "^2.0.18",
+        "emoji-picker-react": "^4.5.14",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.18.0"
@@ -26,7 +28,7 @@
         "@playwright/test": "^1.39.0",
         "@testing-library/react": "^14.0.0",
         "@types/jest": "^29.5.7",
-        "@types/node": "^20.8.10",
+        "@types/node": "^20.9.0",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -43,6 +45,7 @@
         "jest": "^29.7.0",
         "jest-environment-jsdom": "^29.7.0",
         "jest-svg-transformer": "^1.0.0",
+        "openapi-typescript-codegen": "^0.25.0",
         "postcss": "^8.4.31",
         "prettier": "3.0.3",
         "react-test-renderer": "^18.2.0",

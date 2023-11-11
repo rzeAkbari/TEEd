@@ -1,4 +1,7 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.configPath": "Teed-generator/.prettierrc.json"
+    "prettier.configPath": "Teed-generator/.prettierrc.json",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    }
 }
